@@ -27,3 +27,53 @@ The model decides *what* the customer wants; the code computes the numbers.
 ---
 
 ## How it works
+
+User input
+-> Intent classification (LLM)
+-> exact_menu / complex_order -> entity extraction (LLM) -> price and time calculation (Python)
+-> preference / recommendation -> constraint filtering (LLM) -> recommendation engine (LLM)
+-> Agent response + step-by-step reasoning trace
+
+
+---
+
+## Quickstart: Google Colab demo
+
+The interactive prototype runs in Google Colab with no paid API keys required.
+
+1. Click the **Open in Colab** badge above.
+2. Select **Runtime > Run all**.
+3. The notebook downloads `google/flan-t5-base`, loads the PyTorch backend, and launches the interactive `ipywidgets` interface in the final cell.
+
+---
+
+## Project status and roadmap
+
+- [x] **Phase 1 — Colab interactive prototype** (complete)
+  - End-to-end LLM intent classification and entity extraction pipeline
+  - Interactive UI with live reasoning traces and example prompts
+- [ ] **Phase 2 — Modular service architecture** (in progress)
+  - Refactoring single-script logic into separate modules (`schemas.py`, `tools/`, `llm/`, `agent/`)
+  - Unit test suite using `pytest` with mock backends for fast CI
+- [ ] **Phase 3 — Web deployment** (planned)
+  - Containerized FastAPI backend with a Streamlit front end
+
+---
+
+## Tech stack
+
+- **Language:** Python 3.10+
+- **Deep learning framework:** PyTorch (`torch`)
+- **Model inference:** Hugging Face `transformers` (`google/flan-t5-base`)
+- **Interface:** `ipywidgets`, `IPython.display`
+
+---
+
+## 📚 Acknowledgments & References
+
+This project leverages open-source models, frameworks, and tools:
+
+* **Language Model:** Powered by Google's [`google/flan-t5-base`](https://huggingface.co/google/flan-t5-base) hosted on Hugging Face.
+* **Deep Learning Framework:** Built using [PyTorch](https://pytorch.org/) and Hugging Face [Transformers](https://huggingface.co/docs/transformers/index).
+* **UI & Interactivity:** Interface built with [IPyWidgets](https://ipywidgets.readthedocs.io/) inside Google Colab.
+* **Design Pattern:** Architecture inspired by deterministic tool-calling and hybrid LLM agent design patterns.
