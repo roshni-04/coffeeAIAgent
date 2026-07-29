@@ -1,4 +1,3 @@
-```markdown
 # Coffee AI Agent — LLM-Driven Queue and Recommendation System
 
 > **Live interactive demo:** run the fully functional Colab notebook prototype below.
@@ -28,54 +27,3 @@ The model decides *what* the customer wants; the code computes the numbers.
 ---
 
 ## How it works
-
-```
-User input
-    -> Intent classification (LLM)
-         -> exact_menu / complex_order -> entity extraction (LLM) -> price and time calculation (Python)
-         -> preference / recommendation -> constraint filtering (LLM) -> recommendation engine (LLM)
-    -> Agent response + step-by-step reasoning trace
-```
-
----
-
-## Quickstart: Google Colab demo
-
-The interactive prototype runs in Google Colab with no paid API keys required.
-
-1. Click the **Open in Colab** badge above.
-2. Select **Runtime > Run all**.
-3. The notebook downloads `google/flan-t5-base`, loads the PyTorch backend, and launches the interactive `ipywidgets` interface in the final cell.
-
----
-
-## Project status and roadmap
-
-- [x] **Phase 1 — Colab interactive prototype** (complete)
-  - End-to-end LLM intent classification and entity extraction pipeline
-  - Interactive UI with live reasoning traces and example prompts
-- [ ] **Phase 2 — Modular service architecture** (in progress)
-  - Refactoring single-script logic into separate modules (`schemas.py`, `tools/`, `llm/`, `agent/`)
-  - Unit test suite using `pytest` with mock backends for fast CI
-- [ ] **Phase 3 — Web deployment** (planned)
-  - Containerized FastAPI backend with a Streamlit front end
-
----
-
-## Tech stack
-
-- **Language:** Python 3.10+
-- **Deep learning framework:** PyTorch (`torch`)
-- **Model inference:** Hugging Face `transformers` (`google/flan-t5-base`)
-- **Interface:** `ipywidgets`, `IPython.display`
-
----
-
-## License
-
-Specify a license (e.g. MIT) before publishing publicly.
-```
-
-Two things to update before pushing:
-1. Replace `YOUR_COLAB_LINK_HERE` with your actual shareable Colab link.
-2. Add a `LICENSE` file — recruiters and other developers notice its absence on public repos, and it's a one-line addition (MIT is the standard permissive default if you don't have a preference).
